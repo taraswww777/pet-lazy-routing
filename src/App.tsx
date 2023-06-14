@@ -1,30 +1,20 @@
 import './App.css'
 import React from "react";
-import {FirstPage, SecondPage} from "./pages";
-import {
-  BrowserRouter,
-  Route,
-  Link, Routes
-} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {FirstPage, IndexPage, SecondPage} from "./pages";
+import {Layout} from "./components/Layout.tsx";
 
 function App() {
   return (
     <React.StrictMode>
       <BrowserRouter>
-        <div>
-          <ul>
-            <li><Link to={'/'}>index</Link></li>
-            <li><Link to={'/FirstPage'}>FirstPage</Link></li>
-            <li><Link to={'/SecondPage'}>SecondPage</Link></li>
-          </ul>
-          <div>
-            <Routes>
-              <Route path='/' element={'index'} />
-              <Route path='/FirstPage' element={<FirstPage />} />
-              <Route path='/SecondPage' element={<SecondPage />} />
-            </Routes>
-          </div>
-        </div>
+        <Routes>
+          <Route path='/' element={<Layout />}>
+            <Route index element={<IndexPage />} />
+            <Route path='FirstPage' element={<FirstPage />} />
+            <Route path='SecondPage' element={<SecondPage />} />
+          </Route>
+        </Routes>
       </BrowserRouter>
     </React.StrictMode>
   )
