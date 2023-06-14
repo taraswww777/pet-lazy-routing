@@ -1,6 +1,7 @@
-import {Link, Outlet} from "react-router-dom";
+import {Link} from "react-router-dom";
+import {FC, PropsWithChildren} from "react";
 
-export const Layout = () => {
+export const Layout:FC<PropsWithChildren> = ({children}) => {
   return (
     <div>
       <div>
@@ -11,7 +12,7 @@ export const Layout = () => {
         </ul>
       </div>
       <div>
-        <Outlet />
+        {children}
       </div>
     </div>
   );
